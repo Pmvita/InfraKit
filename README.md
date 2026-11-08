@@ -273,7 +273,7 @@ terraform plan -var-file=terraform.tfvars   # needs AWS credentials
 
 ### Validation (no AWS apply required)
 
-Local CLI (Terraform ≥ 1.5 on `PATH`; installed here via `winget install Hashicorp.Terraform -e`):
+Local CLI (Terraform ≥ 1.5 on `PATH`). Note: `winget install HashiCorp.Terraform` fails (“No package found”); use `winget install Hashicorp.Terraform` (lowercase `c`) or the official zip from `releases.hashicorp.com/terraform` onto `%LOCALAPPDATA%\terraform`:
 
 | Stack | Command | Last local result |
 |---|---|---|

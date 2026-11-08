@@ -64,7 +64,7 @@ Progress tracker for the build. Check items off as you go.
 - [x] Confirm dev + prod use shared modules under `modules/`
 
 ## 🧪 Testing & Validation
-- [x] Run `terraform fmt` + `terraform validate` against dev, prod, and bootstrap (local Success 2026-11-08 via `%LOCALAPPDATA%\terraform` zip; CI uses setup-terraform 1.17.0)
+- [x] Run `terraform fmt` + `terraform validate` against dev, prod, and bootstrap (local Success 2026-11-08 via official zip on PATH; CI pins 1.17.0 — use winget ID `Hashicorp.Terraform`, not `HashiCorp.Terraform`)
 - [ ] Run `terraform plan` against dev — review output carefully
 - [ ] Run `terraform apply` against dev — verify resources in AWS console
 - [ ] Test `terraform destroy` + re-`apply` for full reproducibility
