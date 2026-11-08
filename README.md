@@ -273,13 +273,13 @@ terraform plan -var-file=terraform.tfvars   # needs AWS credentials
 
 ### Validation (no AWS apply required)
 
-Local CLI (Terraform ≥ 1.5 on `PATH`; this machine used the official zip under `%LOCALAPPDATA%\terraform` after `winget install Hashicorp.Terraform` / package-ID quirks):
+Local CLI (Terraform ≥ 1.5 on `PATH`; installed here via `winget install Hashicorp.Terraform -e`):
 
 | Stack | Command | Last local result |
 |---|---|---|
 | **dev** | `cd environments/dev && terraform init -backend=false && terraform validate` | **Success** (2026-11-08) |
-| **prod** | same under `environments/prod` | run locally / CI |
-| **bootstrap** | `cd bootstrap/state-backend && terraform init && terraform validate` | run locally / CI |
+| **prod** | same under `environments/prod` | **Success** (2026-11-08) |
+| **bootstrap** | `cd bootstrap/state-backend && terraform init && terraform validate` | **Success** (2026-11-08) |
 
 CI (`.github/workflows/terraform.yml`) runs `terraform fmt -check -recursive` plus init/validate for **dev**, **prod**, and **bootstrap** on every push/PR.
 
