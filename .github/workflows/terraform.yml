@@ -12,9 +12,6 @@ jobs:
   fmt-validate:
     name: fmt + validate
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: environments/dev
 
     steps:
       - name: Checkout
@@ -23,26 +20,28 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.17.0
+          terraform_version: 1.9.0
 
       - name: Terraform fmt (repo)
-        working-directory: .
         run: terraform fmt -check -recursive
 
-      - name: Terraform init (dev, local backend)
-        run: terraform init -input=false
-
-      - name: Terraform validate (dev)
-        run: terraform validate
+      - name: Terraform init + validate (dev)
+        working-directory: environments/dev
+        run: |
+          rm -f .terraform.lock.hcl
+          terraform init -input=false
+          terraform validate
 
       - name: Terraform init + validate (prod)
         working-directory: environments/prod
         run: |
+          rm -f .terraform.lock.hcl
           terraform init -input=false
           terraform validate
 
       - name: Terraform init + validate (bootstrap)
         working-directory: bootstrap/state-backend
         run: |
+          rm -f .terraform.lock.hcl
           terraform init -input=false
           terraform validate

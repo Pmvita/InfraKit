@@ -1,11 +1,12 @@
-# Resume project notes (OneLock / PulseLink)
+# Resume project notes (phantoms)
 
-**Probe result (2026-11-08):** **OneLock** and **PulseLink** are resume phantoms relative to this Security inventory. `Projects/4) Security` contains only **AWS**, **Logwatch**, and **Packly** — OneLock must not live there.
+Canonical notes: `Projects/PHANTOMS.md`.
 
-## Recommendation
+| Name | Status |
+|---|---|
+| **OneLock** | GitHub: https://github.com/Pmvita/OneLock — clone for demos. Local pointer: `Projects/1) Full-Stack Engineering/OneLock`. Keep `4) Security` as AWS/Logwatch/Packly. |
+| **PulseLink** | GitHub exists, missing under MAIN — clone or soften resume claims. |
+| **Network Packet Analyzer** | Alias of **Packly** — no separate repo. |
+| **InfraKit** | This repo — modular Terraform for AWS. |
 
-1. **Preferred:** Soften or remove OneLock/PulseLink resume claims until you can demo cloned GitHub code (if remotes exist under `Pmvita`).
-2. Do **not** scaffold OneLock under `4) Security` — keep that folder AWS / Logwatch / Packly only.
-3. Keep **InfraKit** (this repo), **Packly**, **Logwatch**, and other present repos as the factual portfolio anchors.
-
-Do not fabricate commit history or screenshots for missing projects.
+Do not fabricate completion, commit history, or screenshots.
