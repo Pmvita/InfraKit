@@ -32,3 +32,7 @@ terraform.rc
 .idea/
 .vscode/
 *.swp
+
+# Child modules are not roots — never commit module-local init artifacts
+modules/**/.terraform.lock.hcl
+
