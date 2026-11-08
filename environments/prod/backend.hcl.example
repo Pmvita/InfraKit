@@ -1,0 +1,7 @@
+# Fill after applying bootstrap/state-backend, then:
+#   terraform init -backend-config=backend.hcl
+bucket         = "infrakit-tfstate-YOUR_ACCOUNT_ID"
+key            = "infrakit/prod/terraform.tfstate"
+region         = "us-east-1"
+dynamodb_table = "infrakit-terraform-locks"
+encrypt        = true

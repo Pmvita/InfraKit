@@ -1,0 +1,4 @@
+# Rename to backend.tf after bootstrap/state-backend is applied.
+terraform {
+  backend "s3" {}
+}

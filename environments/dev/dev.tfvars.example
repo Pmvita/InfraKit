@@ -1,0 +1,23 @@
+aws_region   = "us-east-1"
+environment  = "dev"
+name_prefix  = "infrakit-dev"
+vpc_cidr     = "10.0.0.0/16"
+az_count     = 2
+
+# NAT is expensive — leave false for cheap validate/plan; enable when ECS needs egress
+enable_nat_gateway = false
+
+app_port           = 80
+container_image    = "public.ecr.aws/docker/library/nginx:alpine"
+ecs_desired_count  = 1
+ecs_cpu            = 256
+ecs_memory         = 512
+
+db_instance_class      = "db.t3.micro"
+db_name                = "appdb"
+db_username            = "appadmin"
+db_password            = "CHANGE_ME_use_TF_VAR_or_secret"
+db_multi_az            = false
+db_deletion_protection = false
+
+s3_force_destroy = true

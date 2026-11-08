@@ -1,0 +1,23 @@
+aws_region   = "us-east-1"
+environment  = "prod"
+name_prefix  = "infrakit-prod"
+vpc_cidr     = "10.10.0.0/16"
+az_count     = 3
+
+# Prod needs private egress for image pulls / dependencies
+enable_nat_gateway = true
+
+app_port          = 80
+container_image   = "public.ecr.aws/docker/library/nginx:alpine"
+ecs_desired_count = 2
+ecs_cpu           = 512
+ecs_memory        = 1024
+
+db_instance_class      = "db.t3.small"
+db_name                = "appdb"
+db_username            = "appadmin"
+db_password            = "CHANGE_ME_use_TF_VAR_or_secret"
+db_multi_az            = true
+db_deletion_protection = true
+
+s3_force_destroy = false
