@@ -43,6 +43,10 @@ The project's focus is on **infrastructure discipline**: no manual console chang
 
 > **Built for:** demonstrating production-grade IaC practices — modular Terraform, remote state, locking, and clean environment separation — the foundation any cloud deployment (like CloudLedger) is meant to sit on top of.
 
+## 📌 Project Status
+
+**Modules + CI ready; not applied.** Bootstrap, networking, security, ECS/ALB, RDS, and S3 modules are checked in; PR CI runs `terraform validate`. Live `bootstrap` / `dev` / `prod` apply waits on AWS credentials and a reviewed plan — do **not** treat this README as proof of a live AWS footprint. Prod apply especially requires a reviewed plan and deletion protection; never careless-apply.
+
 ---
 
 ## ✨ Key Features

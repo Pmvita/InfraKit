@@ -2,13 +2,15 @@
 
 Progress tracker for the build. Check items off as you go.
 
+**Portfolio status:** modules + CI validate are ready. Remaining open items are **apply-only** (need AWS credentials + reviewed plan). Do **not** apply prod carelessly.
+
 ---
 
 ## 🏗️ Project Setup
 - [x] Install Terraform + pin version via `.terraform-version` or `required_version`
-- [ ] Set up AWS CLI credentials / profiles for dev and prod
+- [ ] Set up AWS CLI credentials / profiles for dev and prod *(pending credentials)*
 - [x] Set up repo structure (`modules/`, `environments/`, `bootstrap/`)
-- [ ] Configure `terraform fmt` + `terraform validate` in pre-commit hook
+- [ ] Configure `terraform fmt` + `terraform validate` in pre-commit hook *(optional; CI covers validate)*
 - [x] Set up CI to run `terraform validate` on PRs
 
 ## 🔒 Remote State Bootstrap
@@ -17,7 +19,7 @@ Progress tracker for the build. Check items off as you go.
 - [x] Enable S3 bucket encryption at rest
 - [x] Block public access on the state bucket
 - [x] Create DynamoDB table for state locking (`LockID` as partition key)
-- [ ] Apply bootstrap module manually (one-time, before any environment)
+- [ ] Apply bootstrap module manually (one-time, before any environment) *(pending AWS credentials)*
 
 ## 🧩 Networking Module
 - [x] Define VPC with configurable CIDR block
@@ -65,8 +67,8 @@ Progress tracker for the build. Check items off as you go.
 
 ## 🧪 Testing & Validation
 - [x] Run `terraform fmt` + `terraform validate` against dev, prod, and bootstrap (local Success 2026-11-08 via official zip on PATH; CI pins 1.17.0 — use winget ID `Hashicorp.Terraform`, not `HashiCorp.Terraform`)
-- [ ] Run `terraform plan` against dev — review output carefully
-- [ ] Run `terraform apply` against dev — verify resources in AWS console
+- [ ] Run `terraform plan` against dev — review output carefully *(pending AWS credentials)*
+- [ ] Run `terraform apply` against dev — verify resources in AWS console *(pending credentials; schedule destroy)*
 - [ ] Test `terraform destroy` + re-`apply` for full reproducibility
 - [ ] Test concurrent `apply` to confirm DynamoDB locking works
 - [ ] Test `force-unlock` procedure on a deliberately stuck lock
@@ -76,14 +78,14 @@ Progress tracker for the build. Check items off as you go.
 - [ ] Review `prod.tfvars` for correct instance sizes / scaling values
 - [ ] Enable deletion protection on prod RDS
 - [ ] Run `terraform plan -var-file="prod.tfvars"` and get it reviewed
-- [ ] Apply to prod
+- [ ] Apply to prod — **do not run casually; bills ALB/NAT/RDS**
 - [x] Tag all resources consistently (environment, owner, project) — via `default_tags` + module tags
 
 ## 📄 Documentation
-- [x] Write README.md with architecture diagrams
+- [x] Write README.md with architecture diagrams + honest “modules+CI ready, not applied” status
 - [x] Document bootstrap procedure (`bootstrap/README.md`)
-- [ ] Document each module's inputs/outputs (`terraform-docs`)
-- [ ] Add CONTRIBUTING.md with PR/plan-review conventions
+- [ ] Document each module's inputs/outputs (`terraform-docs`) *(nice-to-have)*
+- [ ] Add CONTRIBUTING.md with PR/plan-review conventions *(nice-to-have)*
 
 ---
 
